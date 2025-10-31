@@ -51,10 +51,31 @@ def standard_deviation(data, sample:bool = False) -> float | int:
             the population standard_deviation (`False`). Defaults to `False`.
 
     Returns:
-        float | int: _description_
+        float | int: The standard_deviation of dataset.
         
     Example
-    >>> standard_deviation([1,2,3,4,5], sample:bool = False)
+    >>> standard_deviation([1,2,3,4,5], sample = False)
     1.4142135623730951
     """
     return variance(data, sample) ** 0.5
+
+
+def collatz(number: int) -> list[float]:
+    """
+    This func calculate the collatz pattern.
+
+    Args:
+        number (int): This arg is number that you want to have the pattern of this in collatz.
+
+    Returns:
+        list[float]: The collatz pattern.
+
+    Example:
+    >>> collatz(number = 16)
+    [16.0, 8.0, 4.0, 2.0, 1.0]
+    """
+    result = [float(number)]
+    while(number != 1):
+        number = number / 2 if number % 2 == 0 else number * 3 + 1
+        result.append(number)
+    return result
