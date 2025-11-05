@@ -79,3 +79,31 @@ def collatz(number: int) -> list[float]:
         number = number / 2 if number % 2 == 0 else number * 3 + 1
         result.append(number)
     return result
+
+def median(dataset) -> int | float:
+    """
+    This func calculate the median number of a dataset.
+
+    Args:
+        dataset (dataset): This arg is a dataset.
+
+    Returns:
+        int | float : the median number of dataset.
+
+    Example:
+    >>> collatz(dataset = [1,2,3,4,5])
+    3
+    """
+    dataset = sorted(dataset)
+    length = len(dataset)
+
+    result = None
+    if length % 2 != 0:
+        index = int(length / 2)
+        result = dataset[index]
+    else:
+        number1 = int(length / 2)
+        number2 = number1 - 1
+        result = mean_deviation([dataset[number1], dataset[number2]])
+
+    return result
